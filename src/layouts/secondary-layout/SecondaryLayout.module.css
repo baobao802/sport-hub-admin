@@ -1,0 +1,39 @@
+.layout {
+  background-image: url('/public/images/bg.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  min-height: 100vh;
+}
+
+.innerContent {
+  /* background: white; */
+}
+
+.innerContent { 
+  padding: 24px;
+  min-height: 360px;
+}
+
+.content {
+  margin: 0 16px;
+}
+
+.header {
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  background-color: transparent;
+}
+
+.footer {
+  text-align: center;
+  background-color: transparent;
+}
+
+.breadcrumb {
+  margin: 16px 0;
+}
