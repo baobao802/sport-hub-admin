@@ -17,6 +17,10 @@ const rootRoutes: RouteObject[] = [
     children: [
       authRoutes,
       {
+        path: '/',
+        element: <Navigate to='/dashboard' replace />,
+      },
+      {
         path: '/404',
         element: <NotFound />,
       },

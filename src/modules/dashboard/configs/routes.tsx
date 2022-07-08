@@ -5,7 +5,7 @@ import { GuardRoute } from 'src/components';
 const Dashboard = React.lazy(() => import('../pages'));
 
 const dashboardRoutes: RouteObject = {
-  path: '/',
+  path: '/dashboard',
   element: <GuardRoute />,
   children: [
     {

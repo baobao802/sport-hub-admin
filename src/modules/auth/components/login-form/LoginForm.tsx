@@ -5,11 +5,12 @@ import styles from './LoginForm.module.css';
 
 type Props = {
   initialValues?: Partial<Credentials>;
+  isSubmitting?: boolean;
   onSubmit?: (values: Credentials) => void;
 };
 
 const LoginForm = (props: Props) => {
-  const { initialValues, onSubmit } = props;
+  const { initialValues, isSubmitting, onSubmit } = props;
 
   return (
     <Form
@@ -25,7 +26,7 @@ const LoginForm = (props: Props) => {
         rules={[
           {
             type: 'email',
-            message: 'The input is not valid E-mail!',
+            message: 'The input is not valid email!',
           },
           {
             required: true,
@@ -50,7 +51,7 @@ const LoginForm = (props: Props) => {
       </div>
 
       <Form.Item>
-        <Button type='primary' htmlType='submit' block>
+        <Button type='primary' htmlType='submit' block loading={isSubmitting}>
           Login
         </Button>
       </Form.Item>
