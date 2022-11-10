@@ -1,0 +1,12 @@
+{
+  "realm": "sport-realm",
+  "auth-server-url": "http://localhost:8081/auth/",
+  "ssl-required": "external",
+  "resource": "sport-hub",
+  "verify-token-audience": true,
+  "credentials": {
+    "secret": "wdtbs8aWJfeWJui6fwo6AArz0o7hhgy3"
+  },
+  "use-resource-role-mappings": true,
+  "confidential-port": 0
+}

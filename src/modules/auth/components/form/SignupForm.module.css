@@ -1,0 +1,9 @@
+.container {
+  max-width: 320px;
+  margin: auto;
+}
+
+.HStack {
+  display: flex;
+  justify-content: space-between;
+}

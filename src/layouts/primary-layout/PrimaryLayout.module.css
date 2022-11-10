@@ -1,23 +1,26 @@
-.logo {
+.root .logo {
   height: 32px;
   margin: 16px;
   background: rgba(255, 255, 255, 0.3);
 }
 
-.layout, .innerContent {
+.root .layout,
+.innerContent {
   background: white;
 }
 
-.innerContent { 
-  padding: 24px;
+.root .layout {
+}
+
+.root .innerContent {
   min-height: 360px;
 }
 
-.content {
-  margin: 0 16px;
+.root .content {
+  margin: 0;
 }
 
-.header {
+.root .header {
   padding: 0;
   display: flex;
   justify-content: flex-end;
@@ -26,10 +29,15 @@
   padding: 0 16px;
 }
 
-.footer {
+.root .footer {
   text-align: center;
 }
 
-.breadcrumb {
-  margin: 16px 0;
-}
+/* .root .slider {
+  overflow: auto;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+} */

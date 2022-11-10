@@ -1,4 +1,4 @@
-.layout {
+.root .layout {
   background-image: url('/public/images/bg.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -6,20 +6,16 @@
   min-height: 100vh;
 }
 
-.innerContent {
-  /* background: white; */
-}
-
-.innerContent { 
+.root .innerContent { 
   padding: 24px;
   min-height: 360px;
 }
 
-.content {
+.root .content {
   margin: 0 16px;
 }
 
-.header {
+.root .header {
   padding: 0;
   display: flex;
   justify-content: flex-end;
@@ -29,11 +25,11 @@
   background-color: transparent;
 }
 
-.footer {
+.root .footer {
   text-align: center;
   background-color: transparent;
 }
 
-.breadcrumb {
+.root .breadcrumb {
   margin: 16px 0;
 }

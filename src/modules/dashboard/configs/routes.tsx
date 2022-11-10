@@ -1,16 +1,16 @@
 import React from 'react';
 import { RouteObject } from 'react-router-dom';
-import { GuardRoute } from 'src/components';
+import { GuardRoute } from 'src/components/helpers';
+import { Role } from 'src/types';
 
 const Dashboard = React.lazy(() => import('../pages'));
 
 const dashboardRoutes: RouteObject = {
   path: '/dashboard',
-  element: <GuardRoute />,
   children: [
     {
       index: true,
-      element: <Dashboard />,
+      element: <GuardRoute roles={[Role.APP_ADMIN]} component={Dashboard} />,
     },
   ],
 };

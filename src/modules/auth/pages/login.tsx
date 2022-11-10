@@ -1,44 +1,46 @@
-import { GoogleOutlined } from '@ant-design/icons';
-import { Button, Divider, Image, Space, Typography } from 'antd';
+import { Image, message, Space, Typography } from 'antd';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Page } from 'src/components/page';
 import { LoginForm } from '../components';
 import { useLoginMutation } from '../services/authApi';
-import { setCredentials } from '../services/authSlice';
 import { Credentials } from '../types';
 
 const Login = () => {
-  const [login, { data, isLoading }] = useLoginMutation();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const [login, { isLoading, isSuccess, error }] = useLoginMutation();
 
   const _onSubmit = (values: Credentials) => {
     login(values);
   };
 
   useEffect(() => {
-    if (data) {
-      dispatch(setCredentials(data));
-      navigate('/dashboard');
+    if (error && 'data' in error) {
+      message.error((error.data as any).message);
     }
-  }, [data, dispatch, navigate]);
+  }, [error]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      window.location.href = '/my-hub';
+      message.success('LogIn successful!');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess]);
 
   return (
-    <div style={{ maxWidth: '320px', margin: 'auto' }}>
+    <Page
+      pageHeader={{ title: 'Login | SportHub' }}
+      style={{ maxWidth: '320px', margin: 'auto' }}
+    >
       <Typography.Title style={{ textAlign: 'center' }}>
         <Image src='/images/logo.svg' alt='Sport Hub Logo' preview={false} />
       </Typography.Title>
-      <Button type='primary' size='large' icon={<GoogleOutlined />} ghost block>
-        Google
-      </Button>
-      <Divider orientation='center'>OR</Divider>
       <LoginForm onSubmit={_onSubmit} isSubmitting={isLoading} />
       <Space style={{ display: 'flex', justifyContent: 'space-between' }}>
         <Link to='/forgot-password'>Forgot password?</Link>
         <Link to='/sign-up'>Create a new one.</Link>
       </Space>
-    </div>
+    </Page>
   );
 };
 
